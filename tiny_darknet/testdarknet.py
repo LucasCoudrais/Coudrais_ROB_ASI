@@ -5,7 +5,8 @@ import cv2
 
 
 
-INPUT_FILE='zoo.mp4' # peut etre une video ou un flux par exemple http://192.168.1.189/video.mjpg
+# INPUT_FILE='zoo.mp4' # peut etre une video ou un flux par exemple http://192.168.1.189/video.mjpg
+INPUT_FILE='http://127.0.0.1:5000/video_feed' # peut etre une video ou un flux par exemple http://192.168.1.189/video.mjpg
 OUTPUT_FILE='output.avi'
 LABELS_FILE='coco.names'
 CONFIG_FILE='yolov3-tiny.cfg'
@@ -32,7 +33,7 @@ vs = cv2.VideoCapture(INPUT_FILE)
 # determine only the *output* layer names that we need from YOLO
 ln = net.getLayerNames()
 ln = [ln[i[0] - 1] for i in net.getUnconnectedOutLayers()]
-cnt =0;
+cnt =0
 while True:
 	cnt+=1
 	print ("Frame number", cnt)
